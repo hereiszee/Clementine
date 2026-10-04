@@ -62,7 +62,7 @@ $BIN --tool "Target Size" --answer "500 KB" photo.jpg
 $BIN --tool Trim --answer "0:05 - 0:30" clip.mov
 ```
 
-`scripts/test-conversions.sh` generates sample files and runs about 60 real conversions and tools against them.
+`scripts/test-conversions.sh` generates sample files and runs 58 real conversions and tools against them.
 
 ## Layout
 - `Sources/Clementine/DragMonitor.swift`: spots file drags and the Shift / Option keys
