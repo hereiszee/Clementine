@@ -73,7 +73,7 @@ enum MetadataTools {
                 : Output.url(for: url, ext: url.pathExtension, suffix: "clean")
             out = try producing(target) { try FileManager.default.copyItem(at: url, to: target) }
         }
-        try? Shell.run("/usr/bin/xattr", ["-cr", out.path])
+        _ = try? Shell.run("/usr/bin/xattr", ["-cr", out.path])
         return out
     }
 

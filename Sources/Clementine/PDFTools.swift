@@ -51,7 +51,11 @@ enum PDFTools {
             try Shell.run(gs, ["-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.5", "-dPDFSETTINGS=\(preset)", "-dNOPAUSE",
                                "-dQUIET", "-dBATCH", "-sOutputFile=\(output.path)", input.path], ctx: ctx)
         } else {
-            try save(try open(input), to: output, options: [.saveImagesAsJPEGOption: true, .optimizeImagesForScreenOption: true])
+            if #available(macOS 13.4, *) {
+                try save(try open(input), to: output, options: [.saveImagesAsJPEGOption: true, .optimizeImagesForScreenOption: true])
+            } else {
+                try save(try open(input), to: output)
+            }
         }
     }
 
